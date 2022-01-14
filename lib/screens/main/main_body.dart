@@ -18,8 +18,10 @@ class MainBody extends StatelessWidget {
         child: SelectorView<MainViewmodel, int>(
       selector: (_, vm) => vm.dataCount,
       builder: (_, vm, __, ___) {
+        print('Build ListView');
+
         return ListView.separated(
-          itemCount: 3,
+          itemCount: vm.dataCount,
           separatorBuilder: (context, index) => Divider(
             color: Colors.blueGrey,
           ),
