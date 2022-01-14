@@ -6,7 +6,7 @@
 // Member 2's Name: Nur Ainaa Najihah Binti Azizan    Section: 02   Location: Sungai Petani, Kedah
 // Log the time(s) your pair programming sessions
 //  Date         Time (From)   To             Duration (in minutes)
-//  14/1/2022     2.33p.m
+//  14/1/2022     2.33p.m       3.13p.m
 //  _________    ___________   ___________    ________
 //  _________    ___________   ___________    ________
 //
