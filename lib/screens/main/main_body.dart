@@ -1,7 +1,8 @@
 //TODO Complete the implementation of this class
 
 import 'package:flutter/material.dart';
-
+import 'package:exercise4/screens/main/main_viewmodel.dart';
+import 'package:exercise4/screens/view.dart';
 import 'note_editor_tile.dart';
 import 'note_tile.dart';
 
@@ -13,12 +14,18 @@ import 'note_tile.dart';
 class MainBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: 3,
-      separatorBuilder: (context, index) => Divider(
-        color: Colors.blueGrey,
-      ),
-      itemBuilder: (context, index) => NoteTile(index),
-    );
+    return Center(
+        child: SelectorView<MainViewmodel, int>(
+      selector: (_, vm) => vm.dataCount,
+      builder: (_, vm, __, ___) {
+        return ListView.separated(
+          itemCount: 3,
+          separatorBuilder: (context, index) => Divider(
+            color: Colors.blueGrey,
+          ),
+          itemBuilder: (context, index) => NoteTile(index),
+        );
+      },
+    ));
   }
 }
