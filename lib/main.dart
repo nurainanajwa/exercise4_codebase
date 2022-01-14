@@ -7,7 +7,7 @@
 // Log the time(s) your pair programming sessions
 //  Date         Time (From)   To             Duration (in minutes)
 //  14/1/2022     2.33p.m       3.13p.m       40minutes
-//  14/1/2022    9.54p.m   ___________    ________
+//  14/1/2022      9.54p.m     11.34p.m         1hours 40 minutes  
 //  _________    ___________   ___________    ________
 //
 ////? The main file (main.dart) is fully given. Do nothing here.
