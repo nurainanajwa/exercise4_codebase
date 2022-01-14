@@ -22,28 +22,45 @@ class MainViewmodel extends Viewmodel {
   List<Note> _list;
 
   Note getNote(int index) => _list == null ? null : _list[index];
-  int get dataCount => _list == null ? 0: _list.length;
+  int get dataCount => _list == null ? 0 : _list.length;
 
   @override
   init() => update(() async {
-    _list = await _service.fetchNotes();
-    super.init();
-  });
+        _list = await _service.fetchNotes();
+        super.init();
+      });
 
-  void addNote(Note note) => update(() async{
-    final item = await _service.addNote(note);
-    _list.add(item);
-  });
+  void addNote(Note note) => update(() async {
+        final item = await _service.addNote(note);
+        _list.add(item);
+      });
 
-  void removeNote(dynamic id) => update (() async{
-    await _service.removeNote(id);
-    _list.removeWhere((note) => note.id == id);
-  });
+  void removeNote(dynamic id) => update(() async {
+        await _service.removeNote(id);
+        _list.removeWhere((note) => note.id == id);
+      });
 
   void updateNote({dynamic id, Note data}) => update(() async {
-    final item = await _service.updateNote(id: id, data: data);
-    final index = _list.indexWhere((note) => note.id == id);
-    if(index == -1) return null;
-    _list[index] = data.copyWith(id:id);
+        final item = await _service.updateNote(id: id, data: data);
+        final index = _list.indexWhere((note) => note.id == id);
+        if (index == -1) return null;
+        _list[index] = data.copyWith(id: id);
+      });
+
+  void editMode(index) => update(() async {
+        for (int i = 0; i < _list.length; i++) {
+          if (i == index) {
+            _list[index].toggle();
+          } else {
+            _list[i].editNote();
+          }
+        }
+      }
+  );
+
+  void tap(index) => update(() async{
+    for(int i=0; i<_list.length; i++){
+      _list[i].editNote();
+    }
   });
 }
